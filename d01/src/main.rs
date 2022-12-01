@@ -12,7 +12,7 @@ fn first_part(elves: &Vec<usize>) -> usize {
 fn second_part(elves: &mut Vec<usize>) -> usize {
     // Sort the elves and return the sum of the three highest
     elves.sort_unstable();
-    return elves[elves.len()-3..elves.len()].into_iter().sum();
+    return elves[elves.len()-3..].into_iter().sum();
 }
 
 fn main() {
