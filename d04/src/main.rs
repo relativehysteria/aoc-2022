@@ -25,10 +25,10 @@ fn main() {
 
         // Parse the sections as ranges but not really
         let first  = elves[0].split('-')
-            .map(|x| usize::from_str_radix(x, 10).unwrap())
+            .map(|x| x.parse::<usize>().unwrap())
             .collect::<Vec<usize>>();
         let second = elves[1].split('-')
-            .map(|x| usize::from_str_radix(x, 10).unwrap())
+            .map(|x| x.parse::<usize>().unwrap())
             .collect::<Vec<usize>>();
 
         // Check if either of them is fully contained by the other
