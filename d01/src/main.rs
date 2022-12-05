@@ -1,20 +1,5 @@
 use std::fs::read_to_string;
 
-/// Solution to the first part of the advent
-fn first_part(elves: &Vec<usize>) -> usize {
-    // Return the most calories
-    return *elves.iter().reduce(|max, cal| {
-        if cal > max { cal } else { max }
-    }).unwrap();
-}
-
-/// Solution to the second part of the advent
-fn second_part(elves: &mut Vec<usize>) -> usize {
-    // Sort the elves and return the sum of the three highest
-    elves.sort_unstable();
-    return elves[elves.len()-3..].into_iter().sum();
-}
-
 fn main() {
     // Read the input
     let input = read_to_string("input").unwrap();
@@ -39,9 +24,12 @@ fn main() {
         elves[current] += line.parse::<usize>().unwrap();
     }
 
+    // Sort the calories ascendingly
+    elves.sort_unstable();
+
     // First part
-    println!("{}", first_part(&elves));
+    println!("{}", elves[elves.len()-1]);
 
     // Second part
-    println!("{}", second_part(&mut elves));
+    println!("{}", elves[elves.len()-3..].iter().sum::<usize>());
 }
