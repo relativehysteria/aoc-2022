@@ -5,10 +5,10 @@ fn main() {
     let input = read_to_string("input").unwrap();
 
     // Create a vector tracking the total amount of cal for each elf
-    let mut elves: Vec<usize> = vec![0, 0];
+    let mut elves: Vec<usize> = vec![0];
 
     // Current elf (index into `elves`)
-    let mut current = 1;
+    let mut current = 0;
 
     // Go through each line
     for line in input.lines() {
